@@ -1,6 +1,7 @@
 plugins {
     id(Library.Android.LibraryPlugin)
     id(Library.Kotlin.AndroidPlugin)
+    id(Library.Maven.Publish)
 }
 
 android {

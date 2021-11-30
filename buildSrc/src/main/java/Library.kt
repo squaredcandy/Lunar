@@ -84,4 +84,8 @@ object Library {
         const val DateTimeArtifact =
             "io.github.vanpra.compose-material-dialogs:datetime:$Version"
     }
+
+    object Maven {
+        const val Publish = "maven-publish"
+    }
 }
