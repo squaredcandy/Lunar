@@ -1,4 +1,4 @@
-package com.squaredcandy.lunar.ui
+package com.squaredcandy.lunar.ui.drop_down_field
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

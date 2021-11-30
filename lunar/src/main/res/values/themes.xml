@@ -43,16 +43,23 @@
         <item name="textAppearanceCaption">@style/TextAppearance.Lunar.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.Lunar.Overline</item>
 
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lunar.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lunar.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Lunar.LargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lunar.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lunar.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Lunar.LargeComponent
+        </item>
     </style>
 
     <style name="Base.Theme.Material" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor" tools:ignore="PrivateResource">?android:attr/colorBackground</item>
+        <item name="android:statusBarColor" tools:ignore="PrivateResource">
+            ?android:attr/colorBackground
+        </item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:navigationBarColor">?android:attr/colorBackground</item>
-        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">?android:attr/colorBackground</item>
+        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">
+            ?android:attr/colorBackground
+        </item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
         <item name="android:enforceStatusBarContrast" tools:targetApi="q">true</item>
         <item name="android:enforceNavigationBarContrast" tools:targetApi="q">true</item>

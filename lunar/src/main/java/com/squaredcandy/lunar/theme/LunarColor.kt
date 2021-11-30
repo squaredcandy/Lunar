@@ -76,3 +76,7 @@ val Colors.primaryVariantSurface: Color get() = if (isLight) primaryVariant else
 val Colors.secondarySurface: Color get() = if (isLight) secondary else surface
 
 val Colors.backgroundSurface: Color get() = if (isLight) background else surface
+
+val Colors.inversePrimary: Color get() = if (isLight) secondary else primary
+
+val Colors.inversePrimaryVariant: Color get() = if (isLight) secondaryVariant else primaryVariant

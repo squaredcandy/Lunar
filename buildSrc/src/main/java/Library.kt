@@ -6,7 +6,7 @@ object Library {
         const val TargetVersion = 30
         const val VersionCode = 1
         const val VersionName = "1.0"
-        const val GradleVersion = "7.1.0-beta01"
+        const val GradleVersion = "7.1.0-beta03"
         const val JavaVersion = "11"
         const val UseCompose = true
 

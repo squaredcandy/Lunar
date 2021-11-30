@@ -52,7 +52,7 @@ fun LunarTheme(
         shapes = LunarShape.shapes,
     ) {
         val statusBarColor = MaterialTheme.colors.primarySurface
-        val navigationBarColor = MaterialTheme.colors.surface
+        val navigationBarColor = MaterialTheme.colors.background
 
         // Update status bar colours
         SideEffect {
@@ -67,7 +67,7 @@ fun LunarTheme(
             )
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                systemUiController.setNavigationScrimColor(navigationBarColor)
+                systemUiController.setSystemBarsColor(navigationBarColor)
             }
         }
 

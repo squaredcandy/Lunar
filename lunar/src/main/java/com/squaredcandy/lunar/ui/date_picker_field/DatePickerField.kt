@@ -1,4 +1,4 @@
-package com.squaredcandy.lunar.ui
+package com.squaredcandy.lunar.ui.date_picker_field
 
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.interaction.MutableInteractionSource

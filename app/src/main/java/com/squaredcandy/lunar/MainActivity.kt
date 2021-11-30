@@ -34,7 +34,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.squaredcandy.lunar.lunar.LunarScreen
 import com.squaredcandy.lunar.lunar3.Lunar3Screen
 import com.squaredcandy.lunar.theme.LunarTheme
-import com.squaredcandy.lunar.ui.LunarAppBarDefaults
+import com.squaredcandy.lunar.ui.app_bar.LunarAppBarDefaults
 
 @ExperimentalMaterial3Api
 class MainActivity : AppCompatActivity() {
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             val useMaterial3 = rememberSaveable { mutableStateOf(false) }
             val state = rememberSaveable { mutableStateOf(MainState.MainMenu) }
 
-            when(state.value) {
+            when (state.value) {
                 MainState.MainMenu -> MainMenu(state, useMaterial3)
                 MainState.MaterialDemo -> LunarScreen(state)
                 MainState.Material3Demo -> Lunar3Screen(this, state)
@@ -99,10 +99,14 @@ class MainActivity : AppCompatActivity() {
                             },
                             colors = CheckboxDefaults.colors(
                                 checkedColor = MaterialTheme.colorScheme.primaryContainer,
-                                uncheckedColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f),
+                                uncheckedColor = MaterialTheme.colorScheme.primaryContainer.copy(
+                                    alpha = 0.6f
+                                ),
                                 checkmarkColor = MaterialTheme.colorScheme.onPrimaryContainer,
                                 disabledColor = MaterialTheme.colorScheme.onSurface.copy(alpha = ContentAlpha.disabled),
-                                disabledIndeterminateColor = MaterialTheme.colorScheme.surface.copy(alpha = ContentAlpha.disabled),
+                                disabledIndeterminateColor = MaterialTheme.colorScheme.surface.copy(
+                                    alpha = ContentAlpha.disabled
+                                ),
                             )
                         )
                     }
@@ -110,8 +114,7 @@ class MainActivity : AppCompatActivity() {
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(8.dp)
-                        ,
+                            .padding(8.dp),
                         shape = RoundedCornerShape(20.0.dp),
                         content = {
                             androidx.compose.material3.Text(
@@ -128,8 +131,7 @@ class MainActivity : AppCompatActivity() {
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(8.dp)
-                        ,
+                            .padding(8.dp),
                         shape = RoundedCornerShape(20.0.dp),
                         content = {
                             androidx.compose.material3.Text(
@@ -190,8 +192,7 @@ class MainActivity : AppCompatActivity() {
                             .padding(8.dp)
                             .clickable {
                                 mainState.value = MainState.MaterialDemo
-                            }
-                        ,
+                            },
                         content = {
                             Text(
                                 modifier = Modifier.padding(16.dp),
@@ -206,8 +207,7 @@ class MainActivity : AppCompatActivity() {
                             .padding(8.dp)
                             .clickable {
                                 mainState.value = MainState.Material3Demo
-                            }
-                        ,
+                            },
                         content = {
                             Text(
                                 modifier = Modifier.padding(16.dp),

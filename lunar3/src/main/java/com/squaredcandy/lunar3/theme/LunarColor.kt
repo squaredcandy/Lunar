@@ -7,7 +7,7 @@ object LunarColor {
     val Primary20 = Color(0xff432c00)
     val Primary30 = Color(0xff604100)
     val Primary40 = Color(0xff7f5700)
-//    val Primary70 = Color(0xffdaa22f)
+    val Primary70 = Color(0xffdaa22f)
     val Primary80 = Color(0xffffba2c)
     val Primary90 = Color(0xffffdea9)
     val Primary100 = Color(0xffffffff)

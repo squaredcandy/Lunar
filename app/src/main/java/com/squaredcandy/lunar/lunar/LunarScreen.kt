@@ -25,11 +25,8 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Button
 import androidx.compose.material.Card
-import androidx.compose.material.Checkbox
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ExtendedFloatingActionButton
-import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.IconToggleButton
@@ -37,20 +34,16 @@ import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.RadioButton
 import androidx.compose.material.RangeSlider
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.Slider
 import androidx.compose.material.Surface
-import androidx.compose.material.Switch
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.TextField
-import androidx.compose.material.TopAppBar
-import androidx.compose.material.TriStateCheckbox
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.Search
@@ -74,7 +67,13 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import com.squaredcandy.lunar.MainState
 import com.squaredcandy.lunar.theme.LunarTheme
-import com.squaredcandy.lunar.ui.LunarAppBarDefaults
+import com.squaredcandy.lunar.ui.app_bar.LunarTopAppBar
+import com.squaredcandy.lunar.ui.checkbox.LunarCheckbox
+import com.squaredcandy.lunar.ui.checkbox.LunarTriStateCheckbox
+import com.squaredcandy.lunar.ui.float_action_button.LunarExtendedFloatingActionButton
+import com.squaredcandy.lunar.ui.float_action_button.LunarFloatingActionButton
+import com.squaredcandy.lunar.ui.radio_button.LunarRadioButton
+import com.squaredcandy.lunar.ui.switch.LunarSwitch
 import com.squaredcandy.lunar_common.LunarIcons
 
 @Composable
@@ -106,7 +105,7 @@ private fun LunarMainPage(
 
     Scaffold(
         topBar = {
-            TopAppBar(
+            LunarTopAppBar(
                 title = {
                     Text(
                         text = "Material Theme Demo",
@@ -114,7 +113,6 @@ private fun LunarMainPage(
                         overflow = TextOverflow.Ellipsis
                     )
                 },
-                elevation = LunarAppBarDefaults.topAppBarElevation(),
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -172,7 +170,8 @@ private fun LunarMainPage(
             Surface(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(it)
+                    .padding(it),
+                color = MaterialTheme.colors.background
             ) {
                 LazyColumn(state = lazyListState) {
                     demoList.forEach { it() }
@@ -259,7 +258,10 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
         title = "Button Demo",
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(text = "Tap button title to enable/disable button", style = MaterialTheme.typography.caption)
+        Text(
+            text = "Tap button title to enable/disable button",
+            style = MaterialTheme.typography.caption
+        )
         Spacer(modifier = Modifier.height(8.dp))
 
         SubSectionWithEnabled(
@@ -267,7 +269,7 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
             content = { enabled ->
                 Button(
                     onClick = {},
-                    content = { Text(text = if(enabled) "Enabled Button" else "Disabled Button") },
+                    content = { Text(text = if (enabled) "Enabled Button" else "Disabled Button") },
                     enabled = enabled,
                 )
             },
@@ -289,7 +291,7 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
             content = { enabled ->
                 OutlinedButton(
                     onClick = {},
-                    content = { Text(text = if(enabled) "Enabled Button" else "Disabled Button") },
+                    content = { Text(text = if (enabled) "Enabled Button" else "Disabled Button") },
                     enabled = enabled
                 )
             },
@@ -301,7 +303,7 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
                 TextButton(
                     onClick = {},
                     enabled = enabled,
-                    content = { Text(text = if(enabled) "Enabled Button" else "Disabled Button") },
+                    content = { Text(text = if (enabled) "Enabled Button" else "Disabled Button") },
                 )
             }
         )
@@ -323,19 +325,19 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
         SubSectionWithEnabled(
             text = "Radio Button",
             content = { enabled ->
-                RadioButton(
+                LunarRadioButton(
                     selected = radioButtonSelectedIndex == 0,
                     onClick = { radioButtonSelectedIndex = 0 },
                     enabled = enabled,
                 )
 
-                RadioButton(
+                LunarRadioButton(
                     selected = radioButtonSelectedIndex == 1,
                     onClick = { radioButtonSelectedIndex = 1 },
                     enabled = enabled,
                 )
 
-                RadioButton(
+                LunarRadioButton(
                     selected = radioButtonSelectedIndex == 2,
                     onClick = { radioButtonSelectedIndex = 2 },
                     enabled = enabled,
@@ -346,7 +348,7 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
         SubSection(
             text = "Floating Action Button",
             content = {
-                FloatingActionButton(
+                LunarFloatingActionButton(
                     onClick = {},
                     content = { SearchIcon() },
                 )
@@ -356,7 +358,7 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
         SubSection(
             text = "Extended Floating Action Button",
             content = {
-                ExtendedFloatingActionButton(
+                LunarExtendedFloatingActionButton(
                     onClick = { },
                     text = {
                         Text(text = "Extended Floating Action Button")
@@ -372,7 +374,7 @@ private fun buttonDemo(): LazyListScope.() -> Unit {
         SubSectionWithEnabled(
             text = "Switch",
             content = { enabled ->
-                Switch(
+                LunarSwitch(
                     checked = switchChecked,
                     onCheckedChange = { switchChecked = !switchChecked },
                     enabled = enabled,
@@ -390,7 +392,7 @@ private fun checkBoxDemo(): LazyListScope.() -> Unit {
     ) {
         var checkboxChecked by rememberSaveable { mutableStateOf(false) }
         SubSectionWithEnabled(text = "Checkbox") { enabled ->
-            Checkbox(
+            LunarCheckbox(
                 checked = checkboxChecked,
                 onCheckedChange = { checkboxChecked = !checkboxChecked },
                 enabled = enabled,
@@ -399,7 +401,7 @@ private fun checkBoxDemo(): LazyListScope.() -> Unit {
 
         var triCheckboxState by rememberSaveable { mutableStateOf(ToggleableState.Off) }
         SubSectionWithEnabled(text = "TriStateCheckbox") { enabled ->
-            TriStateCheckbox(
+            LunarTriStateCheckbox(
                 state = triCheckboxState,
                 onClick = {
                     val newIndex = (triCheckboxState.ordinal + 1) % ToggleableState.values().size
@@ -551,7 +553,7 @@ private fun tabDemo(): LazyListScope.() -> Unit {
                 }
             )
         }
-        
+
         Spacer(modifier = Modifier.height(8.dp))
 
         var scrollableTabIndex by rememberSaveable { mutableStateOf(0) }
@@ -797,7 +799,7 @@ private fun section(
             Box(
                 modifier = Modifier
                     .clickable { visibleState = !visibleState }
-                    .background(MaterialTheme.colors.surface)
+                    .background(MaterialTheme.colors.background)
                     .padding(vertical = 8.dp)
                     .fillMaxWidth(),
             ) {
@@ -824,8 +826,7 @@ private fun section(
                     modifier = Modifier
                         .then(modifier)
                         .padding(8.dp)
-                        .fillMaxWidth()
-                    ,
+                        .fillMaxWidth(),
                     content = content,
                     horizontalAlignment = horizontalAlignment
                 )
