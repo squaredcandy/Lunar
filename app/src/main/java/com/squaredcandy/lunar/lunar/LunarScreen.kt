@@ -1,6 +1,6 @@
 package com.squaredcandy.lunar.lunar
 
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.*
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -22,33 +22,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Button
-import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.IconToggleButton
-import androidx.compose.material.LinearProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.RangeSlider
-import androidx.compose.material.Scaffold
-import androidx.compose.material.ScrollableTabRow
-import androidx.compose.material.Slider
-import androidx.compose.material.Surface
-import androidx.compose.material.Tab
-import androidx.compose.material.TabRow
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
-import androidx.compose.material.TextField
-import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material.icons.rounded.UnfoldLess
-import androidx.compose.material.icons.rounded.UnfoldMore
+import androidx.compose.material.*
+import androidx.compose.material.icons.rounded.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
@@ -67,6 +42,7 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import com.squaredcandy.lunar.MainState
 import com.squaredcandy.lunar.theme.LunarTheme
+import com.squaredcandy.lunar.theme.surfacePrimary
 import com.squaredcandy.lunar.ui.app_bar.LunarTopAppBar
 import com.squaredcandy.lunar.ui.checkbox.LunarCheckbox
 import com.squaredcandy.lunar.ui.checkbox.LunarTriStateCheckbox
@@ -101,7 +77,17 @@ private fun LunarMainPage(
         sliderDemo(),
         tabDemo(),
         textFieldDemo(),
+        bottomNavigation(),
     )
+
+    // Dropdown Menu
+    // Bottom Navigation
+    // Top app bar
+    // Bottom app bar
+    // Snackbar
+    // Modal Drawer
+    // Bottom Drawer
+    // Backdrop
 
     Scaffold(
         topBar = {
@@ -171,7 +157,6 @@ private fun LunarMainPage(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(it),
-                color = MaterialTheme.colors.background
             ) {
                 LazyColumn(state = lazyListState) {
                     demoList.forEach { it() }
@@ -718,16 +703,40 @@ private fun textFieldDemo(): LazyListScope.() -> Unit {
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             )
         }
-
-        // Dropdown Menu
-        // Bottom Navigation
-        // Top app bar
-        // Bottom app bar
-        // Snackbar
-        // Modal Drawer
-        // Bottom Drawer
-        // Backdrop
     }
+}
+
+@Composable
+private fun bottomNavigation(): LazyListScope.() -> Unit {
+    val bottomNavigationList = listOf(
+        "Item 1",
+        "Item 2",
+        "Item 3",
+        "Item 4",
+    )
+    var selectedIndex by rememberSaveable { mutableStateOf(0) }
+    return section(title = "Bottom Navigation") {
+        SubSectionWithEnabled(text = "Bottom") { enabled ->
+            BottomNavigation {
+                bottomNavigationList.forEachIndexed { index, item ->
+                    BottomNavigationItem(
+                        selected = selectedIndex == index,
+                        onClick = { selectedIndex = index },
+                        icon = { Icon(imageVector = LunarIcons.Home, contentDescription = null) },
+                        label = { Text(text = item) },
+                        selectedContentColor = MaterialTheme.colors.surfacePrimary,
+                        unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.medium),
+                        enabled = enabled,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SearchIcon() {
+    Icon(imageVector = LunarIcons.Search, contentDescription = null)
 }
 
 @Composable
@@ -736,9 +745,7 @@ private fun SubSection(
     content: @Composable RowScope.() -> Unit,
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = text,
                 style = MaterialTheme.typography.subtitle2,
@@ -759,9 +766,7 @@ private fun SubSectionWithEnabled(
 ) {
     var enabled by rememberSaveable { mutableStateOf(true) }
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 modifier = Modifier.clickable(
                     onClick = {
@@ -780,17 +785,12 @@ private fun SubSectionWithEnabled(
     }
 }
 
-@Composable
-private fun SearchIcon() {
-    Icon(imageVector = LunarIcons.Search, contentDescription = null)
-}
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun section(
     modifier: Modifier = Modifier,
     title: String,
-    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
+    horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
     content: @Composable ColumnScope.() -> Unit,
 ): LazyListScope.() -> Unit {
     var visibleState by rememberSaveable { mutableStateOf(false) }
@@ -799,7 +799,6 @@ private fun section(
             Box(
                 modifier = Modifier
                     .clickable { visibleState = !visibleState }
-                    .background(MaterialTheme.colors.background)
                     .padding(vertical = 8.dp)
                     .fillMaxWidth(),
             ) {
@@ -820,7 +819,10 @@ private fun section(
         item {
             AnimatedVisibility(
                 visible = visibleState,
-                modifier = Modifier.fillMaxSize()
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically(),
+                modifier = Modifier
+                    .fillMaxSize(),
             ) {
                 Column(
                     modifier = Modifier

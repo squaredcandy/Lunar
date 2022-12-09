@@ -66,6 +66,7 @@ object LunarColor {
     val Grey2B = Color(0xff727474)
     val Grey2M = Color(0xffc6c9c7)
     val GreyN9 = Color(0xff393b3b)
+    val RedRO2 = Color(0xffdd1126)
 }
 
 
@@ -76,6 +77,8 @@ val Colors.primaryVariantSurface: Color get() = if (isLight) primaryVariant else
 val Colors.secondarySurface: Color get() = if (isLight) secondary else surface
 
 val Colors.backgroundSurface: Color get() = if (isLight) background else surface
+
+val Colors.surfacePrimary: Color get() = if (isLight) surface else primary
 
 val Colors.inversePrimary: Color get() = if (isLight) secondary else primary
 

@@ -6,7 +6,7 @@ object Library {
         const val TargetVersion = 30
         const val VersionCode = 1
         const val VersionName = "1.0"
-        const val GradleVersion = "7.1.0-beta03"
+        const val GradleVersion = "7.3.0-alpha05"
         const val JavaVersion = "11"
         const val UseCompose = true
 
@@ -15,11 +15,11 @@ object Library {
     }
 
     object Kotlin {
-        const val LibraryVersion = "1.5.31"
+        const val LibraryVersion = "1.6.10"
         const val AndroidPlugin = "kotlin-android"
 
         object Coroutines {
-            const val Version = "1.5.2"
+            const val Version = "1.6.0"
 
             const val CoreArtifact = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$Version"
             const val AndroidArtifact =
@@ -29,21 +29,21 @@ object Library {
 
     object AndroidX {
         object Activity {
-            const val Version = "1.3.1"
+            const val Version = "1.4.0"
 
             const val KtxArtifact = "androidx.activity:activity-ktx:$Version"
             const val ComposeArtifact = "androidx.activity:activity-compose:$Version"
         }
 
         object AppCompat {
-            const val Version = "1.4.0-rc01"
+            const val Version = "1.4.1"
 
             const val Artifact = "androidx.appcompat:appcompat:$Version"
         }
 
         object Compose {
-            const val Version = "1.1.0-beta01"
-            const val Material3Version = "1.0.0-alpha01"
+            const val Version = "1.2.0-alpha06"
+            const val Material3Version = "1.0.0-alpha08"
 
             const val AnimationArtifact = "androidx.compose.animation:animation:$Version"
             const val CompilerArtifact = "androidx.compose.compiler:compiler:$Version"
@@ -66,20 +66,20 @@ object Library {
         }
 
         object Splashscreen {
-            const val Version = "1.0.0-alpha01"
+            const val Version = "1.0.0-beta02"
 
             const val Artifact = "androidx.core:core-splashscreen:$Version"
         }
     }
 
     object Material {
-        const val Version = "1.5.0-alpha05"
+        const val Version = "1.6.0-beta01"
 
         const val Artifact = "com.google.android.material:material:$Version"
     }
 
     object ComposeDialog {
-        const val Version = "0.6.1"
+        const val Version = "0.7.0"
 
         const val DateTimeArtifact =
             "io.github.vanpra.compose-material-dialogs:datetime:$Version"
