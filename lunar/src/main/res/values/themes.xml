@@ -1,67 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base Splashscreen -->
-    <style name="Base.Theme.Material.Lunar.Splash" parent="Theme.SplashScreen">
-<!--        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>-->
-        <item name="windowSplashScreenBackground">?android:attr/colorBackground</item>
-        <item name="postSplashScreenTheme">@style/Theme.Material.Lunar</item>
-    </style>
-
-    <style name="Theme.Material.Lunar" parent="Base.Theme.Material.Lunar" />
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Material.Lunar" parent="Base.Theme.Material">
-        <item name="colorPrimary">@color/amber_700</item>
-        <item name="colorOnPrimary">@color/white_50</item>
-        <item name="colorPrimaryVariant">@color/amber_800</item>
-
-        <item name="colorSecondary">@color/grey_800</item>
-        <item name="colorOnSecondary">@color/white_50</item>
-        <item name="colorSecondaryVariant">@color/grey_900</item>
-
-        <item name="android:colorBackground">@color/white_50</item>
-        <item name="colorOnBackground">@color/black_900</item>
-
-        <item name="colorSurface">@color/white_100</item>
-        <item name="colorOnSurface">@color/black_900</item>
-
-        <item name="colorError">@color/red_600</item>
-        <item name="colorOnError">@color/white_50</item>
-
-        <item name="android:windowBackground">?android:attr/colorBackground</item>
-
-        <item name="textAppearanceHeadline1">@style/TextAppearance.Lunar.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.Lunar.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.Lunar.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.Lunar.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.Lunar.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.Lunar.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.Lunar.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.Lunar.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.Lunar.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.Lunar.Body2</item>
-        <item name="textAppearanceButton">@style/TextAppearance.Lunar.Button</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.Lunar.Caption</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.Lunar.Overline</item>
-
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Lunar.SmallComponent
-        </item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Lunar.MediumComponent
-        </item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Lunar.LargeComponent
-        </item>
-    </style>
-
-    <style name="Base.Theme.Material" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor" tools:ignore="PrivateResource">
-            ?android:attr/colorBackground
-        </item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
-        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
-        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">
-            ?android:attr/colorBackground
-        </item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
-        <item name="android:enforceStatusBarContrast" tools:targetApi="q">true</item>
-        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">true</item>
+<resources>
+    <style name="Theme.Lunar" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_light_error</item>
+        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_light_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
+<!--        <item name="coloryellow">#895100</item>-->
+<!--        <item name="colorOnyellow">#ffffff</item>-->
+<!--        <item name="coloryellowContainer">#ffdcbc</item>-->
+<!--        <item name="colorOnyellowContainer">#2c1700</item>-->
+<!--        <item name="harmonizeyellow">false</item>-->
+<!--        <item name="colorred">#ac3231</item>-->
+<!--        <item name="colorOnred">#ffffff</item>-->
+<!--        <item name="colorredContainer">#ffdad7</item>-->
+<!--        <item name="colorOnredContainer">#410004</item>-->
+<!--        <item name="harmonizered">false</item>-->
+<!--        <item name="colorgreen">#376a20</item>-->
+<!--        <item name="colorOngreen">#ffffff</item>-->
+<!--        <item name="colorgreenContainer">#b7f397</item>-->
+<!--        <item name="colorOngreenContainer">#072100</item>-->
+<!--        <item name="harmonizegreen">false</item>-->
+<!--        <item name="colorcyan">#006a6a</item>-->
+<!--        <item name="colorOncyan">#ffffff</item>-->
+<!--        <item name="colorcyanContainer">#6ff7f6</item>-->
+<!--        <item name="colorOncyanContainer">#002020</item>-->
+<!--        <item name="harmonizecyan">true</item>-->
+<!--        <item name="colorbrightRed">#c00001</item>-->
+<!--        <item name="colorOnbrightRed">#ffffff</item>-->
+<!--        <item name="colorbrightRedContainer">#ffdad4</item>-->
+<!--        <item name="colorOnbrightRedContainer">#410000</item>-->
+<!--        <item name="harmonizebrightRed">false</item>-->
+<!--        <item name="colorbrightGreen">#226d00</item>-->
+<!--        <item name="colorOnbrightGreen">#ffffff</item>-->
+<!--        <item name="colorbrightGreenContainer">#7cff49</item>-->
+<!--        <item name="colorOnbrightGreenContainer">#052100</item>-->
+<!--        <item name="harmonizebrightGreen">false</item>-->
+<!--        <item name="colorbrightYellow">#6b5f00</item>-->
+<!--        <item name="colorOnbrightYellow">#ffffff</item>-->
+<!--        <item name="colorbrightYellowContainer">#fee322</item>-->
+<!--        <item name="colorOnbrightYellowContainer">#201c00</item>-->
+<!--        <item name="harmonizebrightYellow">false</item>-->
+<!--        <item name="colorbrightMagenta">#9400d7</item>-->
+<!--        <item name="colorOnbrightMagenta">#ffffff</item>-->
+<!--        <item name="colorbrightMagentaContainer">#f5d9ff</item>-->
+<!--        <item name="colorOnbrightMagentaContainer">#30004a</item>-->
+<!--        <item name="harmonizebrightMagenta">true</item>-->
+<!--        <item name="colorbrightCyan">#006a6a</item>-->
+<!--        <item name="colorOnbrightCyan">#ffffff</item>-->
+<!--        <item name="colorbrightCyanContainer">#37fafa</item>-->
+<!--        <item name="colorOnbrightCyanContainer">#002020</item>-->
+<!--        <item name="harmonizebrightCyan">true</item>-->
+        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+        <item name="android:statusBarColor">?android:attr/colorBackground</item>
     </style>
 </resources>

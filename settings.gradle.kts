@@ -1,14 +1,14 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
         mavenCentral()
-        maven("https://jitpack.io")
-    }
-    plugins {
-        id("com.android.application") version "7.3.0-alpha05"
-        id("com.android.library") version "7.3.0-alpha05"
-        id("org.jetbrains.kotlin.android") version "1.6.10"
+        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -18,8 +18,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "Lunar"
 include(":app")
 include(":lunar")
-include(":lunar3")
-include(":lunar-common")

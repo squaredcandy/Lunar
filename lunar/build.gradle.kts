@@ -1,32 +1,52 @@
 plugins {
-    id(Library.Android.LibraryPlugin)
-    id(Library.Kotlin.AndroidPlugin)
-    id(Library.Maven.Publish)
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    commonAndroid()
-    composeFeatures()
+    namespace = "com.squaredcandy.lunar"
+    compileSdk = libs.versions.gradle.compile.target.get().toInt()
+
+    defaultConfig {
+        minSdk = libs.versions.gradle.compile.min.get().toInt()
+        targetSdk = libs.versions.gradle.compile.target.get().toInt()
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
     kotlinOptions {
-        jvmTarget = Library.Android.JavaVersion
+        jvmTarget = libs.versions.gradle.jvm.target.get()
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
-    api(project(":lunar-common"))
-
-    implementation(Library.AndroidX.Compose.AnimationArtifact)
-    implementation(Library.AndroidX.Compose.CompilerArtifact)
-    implementation(Library.AndroidX.Compose.FoundationArtifact)
-    implementation(Library.AndroidX.Compose.MaterialArtifact)
-    implementation(Library.AndroidX.Compose.MaterialIconsArtifact)
-    implementation(Library.AndroidX.Compose.RuntimeArtifact)
-    implementation(Library.AndroidX.Compose.UiArtifact)
-    implementation(Library.AndroidX.Compose.UiToolingArtifact)
-    implementation(Library.AndroidX.Compose.UiToolingPreviewArtifact)
-    implementation(Library.AndroidX.Splashscreen.Artifact)
-
-    implementation(Library.Material.Artifact)
-
-    api(Library.ComposeDialog.DateTimeArtifact)
+    implementation(libs.androidx.compose.compiler)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.material)
 }
