@@ -31,16 +31,17 @@ private val LightColorScheme = lightColorScheme(
     onErrorContainer = md_theme_light_onErrorContainer,
     background = md_theme_light_background,
     onBackground = md_theme_light_onBackground,
-    surface = md_theme_light_surface,
-    onSurface = md_theme_light_onSurface,
-    surfaceVariant = md_theme_light_surfaceVariant,
-    onSurfaceVariant = md_theme_light_onSurfaceVariant,
     outline = md_theme_light_outline,
     inverseOnSurface = md_theme_light_inverseOnSurface,
     inverseSurface = md_theme_light_inverseSurface,
     inversePrimary = md_theme_light_inversePrimary,
     surfaceTint = md_theme_light_surfaceTint,
-    scrim = md_theme_light_shadow,
+    outlineVariant = md_theme_light_outlineVariant,
+    scrim = md_theme_light_scrim,
+    surface = md_theme_light_surface,
+    onSurface = md_theme_light_onSurface,
+    surfaceVariant = md_theme_light_surfaceVariant,
+    onSurfaceVariant = md_theme_light_onSurfaceVariant,
 )
 
 private val DarkColorScheme = darkColorScheme(
@@ -62,16 +63,17 @@ private val DarkColorScheme = darkColorScheme(
     onErrorContainer = md_theme_dark_onErrorContainer,
     background = md_theme_dark_background,
     onBackground = md_theme_dark_onBackground,
-    surface = md_theme_dark_surface,
-    onSurface = md_theme_dark_onSurface,
-    surfaceVariant = md_theme_dark_surfaceVariant,
-    onSurfaceVariant = md_theme_dark_onSurfaceVariant,
     outline = md_theme_dark_outline,
     inverseOnSurface = md_theme_dark_inverseOnSurface,
     inverseSurface = md_theme_dark_inverseSurface,
     inversePrimary = md_theme_dark_inversePrimary,
     surfaceTint = md_theme_dark_surfaceTint,
-    scrim = md_theme_dark_shadow,
+    outlineVariant = md_theme_dark_outlineVariant,
+    scrim = md_theme_dark_scrim,
+    surface = md_theme_dark_surface,
+    onSurface = md_theme_dark_onSurface,
+    surfaceVariant = md_theme_dark_surfaceVariant,
+    onSurfaceVariant = md_theme_dark_onSurfaceVariant,
 )
 
 @Suppress("MemberVisibilityCanBePrivate")
@@ -274,60 +276,60 @@ data object LunarAccentColors {
         get() = onBrightCyanContainer(isSystemInDarkTheme())
 
     // Base Colors
-    private fun red(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_red else light_red
-    private fun green(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_green else light_green
-    private fun yellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_yellow else light_yellow
-    private fun blue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_blue else light_blue
-    private fun magenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_magenta else light_magenta
-    private fun cyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_cyan else light_cyan
-    private fun brightRed(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_red else light_bright_red
-    private fun brightGreen(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_green else light_bright_green
-    private fun brightYellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_yellow else light_bright_yellow
-    private fun brightBlue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_blue else light_bright_blue
-    private fun brightMagenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_magenta else light_bright_magenta
-    private fun brightCyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_cyan else light_bright_cyan
+    private fun red(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_Red else light_Red
+    private fun green(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_Green else light_Green
+    private fun yellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_Yellow else light_Yellow
+    private fun blue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_Blue else light_Blue
+    private fun magenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_Magenta else light_Magenta
+    private fun cyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_Cyan else light_Cyan
+    private fun brightRed(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightRed else light_BrightRed
+    private fun brightGreen(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightGreen else light_BrightGreen
+    private fun brightYellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightYellow else light_BrightYellow
+    private fun brightBlue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightBlue else light_BrightBlue
+    private fun brightMagenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightMagenta else light_BrightMagenta
+    private fun brightCyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightCyan else light_BrightCyan
 
     // Content Colors
-    private fun onRed(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onred else light_onred
-    private fun onGreen(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_ongreen else light_ongreen
-    private fun onYellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onyellow else light_onyellow
-    private fun onBlue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onblue else light_onblue
-    private fun onMagenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onmagenta else light_onmagenta
-    private fun onCyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_oncyan else light_oncyan
-    private fun onBrightRed(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_red else light_onbright_red
-    private fun onBrightGreen(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_green else light_onbright_green
-    private fun onBrightYellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_yellow else light_onbright_yellow
-    private fun onBrightBlue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_blue else light_onbright_blue
-    private fun onBrightMagenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_magenta else light_onbright_magenta
-    private fun onBrightCyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_cyan else light_onbright_cyan
+    private fun onRed(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onRed else light_onRed
+    private fun onGreen(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onGreen else light_onGreen
+    private fun onYellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onYellow else light_onYellow
+    private fun onBlue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBlue else light_onBlue
+    private fun onMagenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onMagenta else light_onMagenta
+    private fun onCyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onCyan else light_onCyan
+    private fun onBrightRed(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightRed else light_onBrightRed
+    private fun onBrightGreen(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightGreen else light_onBrightGreen
+    private fun onBrightYellow(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightYellow else light_onBrightYellow
+    private fun onBrightBlue(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightBlue else light_onBrightBlue
+    private fun onBrightMagenta(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightMagenta else light_onBrightMagenta
+    private fun onBrightCyan(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightCyan else light_onBrightCyan
 
     // Containers
-    private fun redContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_redContainer else light_redContainer
-    private fun greenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_greenContainer else light_greenContainer
-    private fun yellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_yellowContainer else light_yellowContainer
-    private fun blueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_blueContainer else light_blueContainer
-    private fun magentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_magentaContainer else light_magentaContainer
-    private fun cyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_cyanContainer else light_cyanContainer
-    private fun brightRedContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_redContainer else light_bright_redContainer
-    private fun brightGreenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_greenContainer else light_bright_greenContainer
-    private fun brightYellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_yellowContainer else light_bright_yellowContainer
-    private fun brightBlueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_blueContainer else light_bright_blueContainer
-    private fun brightMagentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_magentaContainer else light_bright_magentaContainer
-    private fun brightCyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_bright_cyanContainer else light_bright_cyanContainer
+    private fun redContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_RedContainer else light_RedContainer
+    private fun greenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_GreenContainer else light_GreenContainer
+    private fun yellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_YellowContainer else light_YellowContainer
+    private fun blueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BlueContainer else light_BlueContainer
+    private fun magentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_MagentaContainer else light_MagentaContainer
+    private fun cyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_CyanContainer else light_CyanContainer
+    private fun brightRedContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightRedContainer else light_BrightRedContainer
+    private fun brightGreenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightGreenContainer else light_BrightGreenContainer
+    private fun brightYellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightYellowContainer else light_BrightYellowContainer
+    private fun brightBlueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightBlueContainer else light_BrightBlueContainer
+    private fun brightMagentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightMagentaContainer else light_BrightMagentaContainer
+    private fun brightCyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_BrightCyanContainer else light_BrightCyanContainer
 
     // Container Content Colors
-    private fun onRedContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onredContainer else light_onredContainer
-    private fun onGreenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_ongreenContainer else light_ongreenContainer
-    private fun onYellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onyellowContainer else light_onyellowContainer
-    private fun onBlueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onblueContainer else light_onblueContainer
-    private fun onMagentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onmagentaContainer else light_onmagentaContainer
-    private fun onCyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_oncyanContainer else light_oncyanContainer
-    private fun onBrightRedContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_redContainer else light_onbright_redContainer
-    private fun onBrightGreenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_greenContainer else light_onbright_greenContainer
-    private fun onBrightYellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_yellowContainer else light_onbright_yellowContainer
-    private fun onBrightBlueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_blueContainer else light_onbright_blueContainer
-    private fun onBrightMagentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_magentaContainer else light_onbright_magentaContainer
-    private fun onBrightCyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onbright_cyanContainer else light_onbright_cyanContainer
+    private fun onRedContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onRedContainer else light_onRedContainer
+    private fun onGreenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onGreenContainer else light_onGreenContainer
+    private fun onYellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onYellowContainer else light_onYellowContainer
+    private fun onBlueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBlueContainer else light_onBlueContainer
+    private fun onMagentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onMagentaContainer else light_onMagentaContainer
+    private fun onCyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onCyanContainer else light_onCyanContainer
+    private fun onBrightRedContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightRedContainer else light_onBrightRedContainer
+    private fun onBrightGreenContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightGreenContainer else light_onBrightGreenContainer
+    private fun onBrightYellowContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightYellowContainer else light_onBrightYellowContainer
+    private fun onBrightBlueContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightBlueContainer else light_onBrightBlueContainer
+    private fun onBrightMagentaContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightMagentaContainer else light_onBrightMagentaContainer
+    private fun onBrightCyanContainer(isDarkTheme: Boolean): Color = if(isDarkTheme) dark_onBrightCyanContainer else light_onBrightCyanContainer
 
     @Composable
     @ReadOnlyComposable
