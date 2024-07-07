@@ -20,8 +20,6 @@ androidx-compose-compiler = "1.5.14"
 # https://developer.android.com/jetpack/androidx/releases/compose-material3
 androidx-compose-material3 = "1.2.1"
 
-androidx-compose-ui-text-google-fonts = "1.6.8"
-
 # https://github.com/material-components/material-components-android/releases
 material = "1.12.0"
 
@@ -35,7 +33,6 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidx-compose-base" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidx-compose-base" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidx-compose-base" }
-androidx-compose-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "androidx-compose-ui-text-google-fonts" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidx-compose-base" }
 
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
