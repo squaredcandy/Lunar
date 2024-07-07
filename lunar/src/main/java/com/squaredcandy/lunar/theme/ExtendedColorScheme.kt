@@ -1,13 +1,56 @@
 package com.squaredcandy.lunar.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 val LocalExtendedColorScheme = compositionLocalOf { extendedLight }
 
+val MaterialTheme.extendedColorScheme: ExtendedColorScheme
+    @Composable @ReadOnlyComposable get() = LocalExtendedColorScheme.current
+
+@Stable
+fun ExtendedColorScheme.contentColorFor(backgroundColor: Color): Color =
+    when (backgroundColor) {
+        red.color -> red.onColor
+        red.colorContainer -> red.onColorContainer
+        green.color -> green.onColor
+        green.colorContainer -> green.onColorContainer
+        yellow.color -> yellow.onColor
+        yellow.colorContainer -> yellow.onColorContainer
+        blue.color -> blue.onColor
+        blue.colorContainer -> blue.onColorContainer
+        magenta.color -> magenta.onColor
+        magenta.colorContainer -> magenta.onColorContainer
+        cyan.color -> cyan.onColor
+        cyan.colorContainer -> cyan.onColorContainer
+        brightRed.color -> brightRed.onColor
+        brightRed.colorContainer -> brightRed.onColorContainer
+        brightGreen.color -> brightGreen.onColor
+        brightGreen.colorContainer -> brightGreen.onColorContainer
+        brightYellow.color -> brightYellow.onColor
+        brightYellow.colorContainer -> brightYellow.onColorContainer
+        brightBlue.color -> brightBlue.onColor
+        brightBlue.colorContainer -> brightBlue.onColorContainer
+        brightMagenta.color -> brightMagenta.onColor
+        brightMagenta.colorContainer -> brightMagenta.onColorContainer
+        brightCyan.color -> brightCyan.onColor
+        brightCyan.colorContainer -> brightCyan.onColorContainer
+        black.color -> black.onColor
+        black.colorContainer -> black.onColorContainer
+        white.color -> white.onColor
+        white.colorContainer -> white.onColorContainer
+        brightBlack.color -> brightBlack.onColor
+        brightBlack.colorContainer -> brightBlack.onColorContainer
+        brightWhite.color -> brightWhite.onColor
+        brightWhite.colorContainer -> brightWhite.onColorContainer
+        else -> Color.Unspecified
+    }
 @Composable
 internal fun getExtendedColorScheme(darkTheme: Boolean = isSystemInDarkTheme()): ExtendedColorScheme {
     return when {
