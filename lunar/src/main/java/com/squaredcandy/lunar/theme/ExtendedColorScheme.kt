@@ -2,6 +2,7 @@ package com.squaredcandy.lunar.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
@@ -14,6 +15,7 @@ val LocalExtendedColorScheme = compositionLocalOf { extendedLight }
 val MaterialTheme.extendedColorScheme: ExtendedColorScheme
     @Composable @ReadOnlyComposable get() = LocalExtendedColorScheme.current
 
+@Composable
 @Stable
 fun ExtendedColorScheme.contentColorFor(backgroundColor: Color): Color =
     when (backgroundColor) {
@@ -49,7 +51,7 @@ fun ExtendedColorScheme.contentColorFor(backgroundColor: Color): Color =
         brightBlack.colorContainer -> brightBlack.onColorContainer
         brightWhite.color -> brightWhite.onColor
         brightWhite.colorContainer -> brightWhite.onColorContainer
-        else -> Color.Unspecified
+        else -> MaterialTheme.colorScheme.contentColorFor(backgroundColor)
     }
 @Composable
 internal fun getExtendedColorScheme(darkTheme: Boolean = isSystemInDarkTheme()): ExtendedColorScheme {
