@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.composeCompiler)
 }
 
 android {
@@ -34,9 +35,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -45,9 +43,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.compose.compiler)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.compose.ui.text.google.fonts)
     implementation(libs.material)
 }

@@ -1,8 +1,12 @@
 package com.squaredcandy.lunar.theme
 
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.contentColorFor
 import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
@@ -114,4 +118,60 @@ data class LunarColorScheme(
     val onBrightWhite: Color get() = accentColorScheme.brightWhite.onColor
     val brightWhiteContainer: Color get() = accentColorScheme.brightWhite.colorContainer
     val onBrightWhiteContainer: Color get() = accentColorScheme.brightWhite.onColorContainer
+}
+
+@Stable
+fun LunarColorScheme.contentColorFor(backgroundColor: Color): Color = when (backgroundColor) {
+    primary -> onPrimary
+    secondary -> onSecondary
+    tertiary -> onTertiary
+    background -> onBackground
+    error -> onError
+    primaryContainer -> onPrimaryContainer
+    secondaryContainer -> onSecondaryContainer
+    tertiaryContainer -> onTertiaryContainer
+    errorContainer -> onErrorContainer
+    inverseSurface -> inverseOnSurface
+    surface -> onSurface
+    surfaceVariant -> onSurfaceVariant
+    surfaceBright -> onSurface
+    surfaceContainer -> onSurface
+    surfaceContainerHigh -> onSurface
+    surfaceContainerHighest -> onSurface
+    surfaceContainerLow -> onSurface
+    surfaceContainerLowest -> onSurface
+
+    red -> onRed
+    redContainer -> onRedContainer
+    green -> onGreen
+    greenContainer -> onGreenContainer
+    yellow -> onYellow
+    yellowContainer -> onYellowContainer
+    blue -> onBlue
+    blueContainer -> onBlueContainer
+    magenta -> onMagenta
+    magentaContainer -> onMagentaContainer
+    cyan -> onCyan
+    cyanContainer -> onCyanContainer
+    brightRed -> onBrightRed
+    brightRedContainer -> onBrightRedContainer
+    brightGreen -> onBrightGreen
+    brightGreenContainer -> onBrightGreenContainer
+    brightYellow -> onBrightYellow
+    brightYellowContainer -> onBrightYellowContainer
+    brightBlue -> onBrightBlue
+    brightBlueContainer -> onBrightBlueContainer
+    brightMagenta -> onBrightMagenta
+    brightMagentaContainer -> onBrightMagentaContainer
+    brightCyan -> onBrightCyan
+    brightCyanContainer -> onBrightCyanContainer
+    black -> onBlack
+    blackContainer -> onBlackContainer
+    white -> onWhite
+    whiteContainer -> onWhiteContainer
+    brightBlack -> onBrightBlack
+    brightBlackContainer -> onBrightBlackContainer
+    brightWhite -> onBrightWhite
+    brightWhiteContainer -> onBrightWhiteContainer
+    else -> Color.Unspecified
 }
