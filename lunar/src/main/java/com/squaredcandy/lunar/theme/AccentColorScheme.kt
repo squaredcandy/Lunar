@@ -3,16 +3,17 @@ package com.squaredcandy.lunar.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-val LocalExtendedColorScheme = compositionLocalOf { extendedLight }
-
 @Composable
-internal fun getExtendedColorScheme(darkTheme: Boolean = isSystemInDarkTheme()): ExtendedColorScheme {
+internal fun getAccentedColorScheme(darkTheme: Boolean = isSystemInDarkTheme()): AccentColorScheme {
     return when {
-        darkTheme -> extendedDark.applyContrast(extendedDarkMediumContrast, extendedDarkHighContrast)
-        else -> extendedLight.applyContrast(extendedLightMediumContrast, extendedLightHighContrast)
+        darkTheme -> accentedDarkColorScheme().applyContrast(accentedDarkMediumContrastColorScheme(),
+            accentedDarkHighContrastColorScheme()
+        )
+        else -> accentedLightColorScheme().applyContrast(accentedLightMediumContrastColorScheme(),
+            accentedLightHighContrastColorScheme()
+        )
     }
 }
 
@@ -25,7 +26,7 @@ data class ColorFamily(
 )
 
 @Immutable
-data class ExtendedColorScheme(
+data class AccentColorScheme(
     val red: ColorFamily,
     val green: ColorFamily,
     val yellow: ColorFamily,
@@ -44,7 +45,7 @@ data class ExtendedColorScheme(
     val brightWhite: ColorFamily,
 )
 
-val extendedLight = ExtendedColorScheme(
+fun accentedLightColorScheme() = AccentColorScheme(
     red = ColorFamily(
         redLight,
         onRedLight,
@@ -143,7 +144,7 @@ val extendedLight = ExtendedColorScheme(
     ),
 )
 
-val extendedDark = ExtendedColorScheme(
+fun accentedDarkColorScheme() = AccentColorScheme(
     red = ColorFamily(
         redDark,
         onRedDark,
@@ -242,7 +243,7 @@ val extendedDark = ExtendedColorScheme(
     ),
 )
 
-val extendedLightMediumContrast = ExtendedColorScheme(
+fun accentedLightMediumContrastColorScheme() = AccentColorScheme(
     red = ColorFamily(
         redLightMediumContrast,
         onRedLightMediumContrast,
@@ -341,7 +342,7 @@ val extendedLightMediumContrast = ExtendedColorScheme(
     ),
 )
 
-val extendedLightHighContrast = ExtendedColorScheme(
+fun accentedLightHighContrastColorScheme() = AccentColorScheme(
     red = ColorFamily(
         redLightHighContrast,
         onRedLightHighContrast,
@@ -440,7 +441,7 @@ val extendedLightHighContrast = ExtendedColorScheme(
     ),
 )
 
-val extendedDarkMediumContrast = ExtendedColorScheme(
+fun accentedDarkMediumContrastColorScheme() = AccentColorScheme(
     red = ColorFamily(
         redDarkMediumContrast,
         onRedDarkMediumContrast,
@@ -539,7 +540,7 @@ val extendedDarkMediumContrast = ExtendedColorScheme(
     ),
 )
 
-val extendedDarkHighContrast = ExtendedColorScheme(
+fun accentedDarkHighContrastColorScheme() = AccentColorScheme(
     red = ColorFamily(
         redDarkHighContrast,
         onRedDarkHighContrast,

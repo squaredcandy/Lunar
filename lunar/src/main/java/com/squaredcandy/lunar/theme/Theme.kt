@@ -255,14 +255,15 @@ fun LunarTheme(
         else -> lightScheme.applyContrast(mediumContrastLightColorScheme, highContrastLightColorScheme)
     }
 
-    val extendedColorScheme = getExtendedColorScheme(darkTheme)
+    val accentedColorScheme = getAccentedColorScheme(darkTheme)
+    val lunarColorScheme = LunarColorScheme(colorScheme, accentedColorScheme)
 
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
     ) {
         CompositionLocalProvider(
-            LocalExtendedColorScheme provides extendedColorScheme,
+            LocalLunarColorScheme provides lunarColorScheme,
             content = content,
         )
     }

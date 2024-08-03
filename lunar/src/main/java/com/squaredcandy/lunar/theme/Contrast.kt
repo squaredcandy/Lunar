@@ -20,13 +20,13 @@ internal fun ColorScheme.applyContrast(
 }
 
 @Composable
-internal fun ExtendedColorScheme.applyContrast(
-    mediumContrastExtendedColorScheme: ExtendedColorScheme,
-    highContrastExtendedColorScheme: ExtendedColorScheme,
-): ExtendedColorScheme {
+internal fun AccentColorScheme.applyContrast(
+    mediumContrastAccentColorScheme: AccentColorScheme,
+    highContrastAccentColorScheme: AccentColorScheme,
+): AccentColorScheme {
     return applyContrast(
-        mediumContrast = mediumContrastExtendedColorScheme,
-        highContrast = highContrastExtendedColorScheme,
+        mediumContrast = mediumContrastAccentColorScheme,
+        highContrast = highContrastAccentColorScheme,
     )
 }
 
