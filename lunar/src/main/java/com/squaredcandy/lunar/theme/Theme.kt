@@ -260,7 +260,6 @@ fun LunarTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
     ) {
         CompositionLocalProvider(
             LocalLunarColorScheme provides lunarColorScheme,

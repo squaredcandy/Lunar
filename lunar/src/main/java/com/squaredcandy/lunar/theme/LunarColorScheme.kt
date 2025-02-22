@@ -1,14 +1,17 @@
 package com.squaredcandy.lunar.theme
 
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.contentColorFor
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.takeOrElse
 
 val LocalLunarColorScheme = staticCompositionLocalOf { LunarColorScheme(lightColorScheme(), accentedLightColorScheme()) }
 
@@ -119,6 +122,12 @@ data class LunarColorScheme(
     val brightWhiteContainer: Color get() = accentColorScheme.brightWhite.colorContainer
     val onBrightWhiteContainer: Color get() = accentColorScheme.brightWhite.onColorContainer
 }
+
+@Composable
+@ReadOnlyComposable
+fun contentColorFor(backgroundColor: Color) =
+    LunarTheme.colorScheme.contentColorFor(backgroundColor)
+        .takeOrElse { LocalContentColor.current }
 
 @Stable
 fun LunarColorScheme.contentColorFor(backgroundColor: Color): Color = when (backgroundColor) {
