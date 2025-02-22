@@ -1,22 +1,22 @@
 [versions]
 # Gradle
-gradle-agp = "8.3.2"
+gradle-agp = "8.7.3"
 gradle-compile-min = "27"
-gradle-compile-target = "34"
+gradle-compile-target = "35"
 gradle-jvm-target = "17"
 
 # Kotlin
 # https://github.com/JetBrains/kotlin/releases
-kotlin = "2.0.0"
+kotlin = "2.1.10"
 
 # Androidx
 # https://developer.android.com/jetpack/androidx/releases/activity
-androidx-activity-compose = "1.9.1"
+androidx-activity-compose = "1.10.0"
 
 # https://developer.android.com/jetpack/androidx/releases/compose
-androidx-compose-base = "1.6.8"
+androidx-compose-base = "1.8.0-beta02"
 # https://developer.android.com/jetpack/androidx/releases/compose-material3
-androidx-compose-material3 = "1.2.1"
+androidx-compose-material3 = "1.4.0-alpha08"
 
 # https://github.com/material-components/material-components-android/releases
 material = "1.12.0"
@@ -40,6 +40,6 @@ kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin",
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "gradle-agp" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "gradle-agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
