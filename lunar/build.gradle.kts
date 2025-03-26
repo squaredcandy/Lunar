@@ -1,11 +1,20 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.mavenPublish)
 }
 
+val lunar = libs.squaredcandy.lunar.get()
+
+private val Dependency.namespace: String
+    get() = "$group.$name"
+
 android {
-    namespace = "com.squaredcandy.lunar"
+    namespace = lunar.namespace
     compileSdk = libs.versions.gradle.compile.target.get().toInt()
 
     defaultConfig {
@@ -46,4 +55,30 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.material)
+}
+
+val githubProperties = Properties()
+// Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
+githubProperties.load(FileInputStream(rootProject.file("github.properties")))
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = lunar.group
+            artifactId = lunar.name
+            version = lunar.version
+            artifact("$buildDir/outputs/aar/${lunar.name}-release.aar")
+        }
+
+        repositories {
+            maven {
+                name = "GithubPackages"
+                url = uri("https://maven.pkg.github.com/squaredcandy/Lunar")
+                credentials {
+                    username = githubProperties["gpr.usr"] as String? ?: System.getenv("GPR_USER")
+                    password = githubProperties["gpr.key"] as String? ?: System.getenv("GPR_API_KEY")
+                }
+            }
+        }
+    }
 }
