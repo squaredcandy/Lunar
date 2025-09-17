@@ -60,6 +60,11 @@ val githubProperties = Properties()
 // Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 githubProperties.load(FileInputStream(rootProject.file("github.properties")))
 
+tasks.register<Jar>("sourcesJar") {
+    archiveClassifier.set("sources")
+    from(kotlin.sourceSets["main"].kotlin.srcDirs)
+}
+
 publishing {
     publications {
         create<MavenPublication>("release") {
@@ -67,6 +72,7 @@ publishing {
             artifactId = lunar.name
             version = lunar.version
             artifact("$buildDir/outputs/aar/${lunar.name}-release.aar")
+            artifact(tasks.getByName<Jar>("sourcesJar"))
         }
 
         repositories {
@@ -75,7 +81,8 @@ publishing {
                 url = uri("https://maven.pkg.github.com/squaredcandy/Lunar")
                 credentials {
                     username = githubProperties["gpr.usr"] as String? ?: System.getenv("GPR_USER")
-                    password = githubProperties["gpr.key"] as String? ?: System.getenv("GPR_API_KEY")
+                    password =
+                        githubProperties["gpr.key"] as String? ?: System.getenv("GPR_API_KEY")
                 }
             }
         }
