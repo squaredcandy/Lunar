@@ -2,27 +2,27 @@
 # Gradle
 gradle-agp = "8.9.1"
 gradle-compile-min = "27"
-gradle-compile-target = "35"
+gradle-compile-target = "36"
 gradle-jvm-target = "17"
 
 # Kotlin
 # https://github.com/JetBrains/kotlin/releases
-kotlin = "2.1.20"
+kotlin = "2.2.20"
 
 # Androidx
 # https://developer.android.com/jetpack/androidx/releases/activity
-androidx-activity-compose = "1.10.0"
+androidx-activity-compose = "1.11.0"
 
 # https://developer.android.com/jetpack/androidx/releases/compose
-androidx-compose-base = "1.8.0-rc01"
+androidx-compose-base = "1.10.0-alpha03"
 # https://developer.android.com/jetpack/androidx/releases/compose-material3
-androidx-compose-material3 = "1.4.0-alpha10"
+androidx-compose-material3 = "1.5.0-alpha04"
 
 # https://github.com/material-components/material-components-android/releases
-material = "1.12.0"
+material = "1.13.0"
 
 # https://github.com/squaredcandy/Lunar
-lunar = "0.1"
+lunar = "0.2"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
