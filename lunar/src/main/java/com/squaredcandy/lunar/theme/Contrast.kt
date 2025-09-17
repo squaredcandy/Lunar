@@ -1,46 +1,38 @@
 package com.squaredcandy.lunar.theme
 
-import android.app.UiModeManager
-import android.content.Context
 import androidx.compose.material3.ColorScheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
 import com.google.android.material.color.ColorContrast
 
-@Composable
-internal fun ColorScheme.applyContrast(
+internal inline fun ColorScheme.applyContrast(
+    contrastProvider: ContrastProvider,
     mediumContrastColorScheme: ColorScheme,
     highContrastColorScheme: ColorScheme,
 ): ColorScheme {
     return applyContrast(
+        contrastProvider = contrastProvider,
         mediumContrast = mediumContrastColorScheme,
         highContrast = highContrastColorScheme,
     )
 }
 
-@Composable
-internal fun AccentColorScheme.applyContrast(
+internal inline fun AccentColorScheme.applyContrast(
+    contrastProvider: ContrastProvider,
     mediumContrastAccentColorScheme: AccentColorScheme,
     highContrastAccentColorScheme: AccentColorScheme,
 ): AccentColorScheme {
     return applyContrast(
+        contrastProvider = contrastProvider,
         mediumContrast = mediumContrastAccentColorScheme,
         highContrast = highContrastAccentColorScheme,
     )
 }
 
-@Composable
-private fun <T> T.applyContrast(
+private inline fun <T> T.applyContrast(
+    contrastProvider: ContrastProvider,
     mediumContrast: T,
     highContrast: T,
 ): T {
-    if (!ColorContrast.isContrastAvailable()) return this
-    val context = LocalContext.current
-    val uiModeService = remember(context) {
-        context.getSystemService(Context.UI_MODE_SERVICE) as? UiModeManager
-    } ?: return this
-    val contrast = remember(uiModeService) { uiModeService.contrast }
+    val contrast = contrastProvider() ?: return this
     return when {
         contrast > HIGH_CONTRAST_THRESHOLD -> highContrast
         contrast > MEDIUM_CONTRAST_THRESHOLD -> mediumContrast
